@@ -1,11 +1,16 @@
-import React from 'react';
-import RegisterForm from './components/RegisterForm';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import RegisterForm from "./components/RegisterForm";
+import SuccessPage from "./components/SuccessPage";
 
 const App = () => {
   return (
-    <div>
-      <RegisterForm />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<RegisterForm />} />
+        <Route path="/success" element={<SuccessPage />} />
+      </Routes>
+    </Router>
   );
 };
 

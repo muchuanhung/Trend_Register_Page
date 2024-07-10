@@ -1,37 +1,35 @@
-const path = require('path');
+import { resolve as _resolve, join } from 'path';
 
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
+export const entry = './src/index.js';
+export const output = {
+  path: _resolve(__dirname, 'dist'),
+  filename: 'bundle.js',
+};
+export const module = {
+  rules: [
+    {
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
         },
       },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'public'),
     },
-    compress: true,
-    port: 9000,
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
+    },
+  ],
+};
+export const resolve = {
+  extensions: ['.js', '.jsx'],
+};
+export const devServer = {
+  static: {
+    directory: join(__dirname, 'public'),
   },
+  compress: true,
+  port: 3000,
 };
