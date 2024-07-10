@@ -1,0 +1,9 @@
+log/
+./.*
+!.gitignore
+*/migrations/*
+~$*
+node_modules/
+prepros.config
+styles.css
+CACHE/*
